@@ -4,12 +4,12 @@ title: About
 permalink: /about/
 ---
 
-Some information about you!
+Blog created for uploading assignments
 
-### More Information
+### I study Industrial Engineering and Management
 
-A place to include any other types of information that you'd like to include about yourself.
+I have a mathematical background, coding and developing is completely new to me. Don't sue me. 
 
 ### Contact me
 
-[email@domain.com](mailto:email@domain.com)
+[justus.benning@rwth-aachen.de](mailto:justus.benning@rwth-aachen.de)
