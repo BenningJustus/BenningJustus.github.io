@@ -27,6 +27,7 @@ The current shortest path is 5 for cell (4, 4)
 The current shortest path is 13 for cell (4, 3)
 ...
 ```
+
 All in all, the program produces around 90 lines of console output. But if we think about the original problem, we know that our 4 by 5 grid only has 20 cells. And because we already know the solution of the very last grid entry, we would only need to solve 19 subproblems.
 
 ![Cost-Matrix](/images/Cost-Matrix.png "Cost-Matrix")
