@@ -27,13 +27,13 @@ The current shortest path is 5 for cell (4, 4)
 The current shortest path is 13 for cell (4, 3)
 ...
 ```
-
+#### The Problem
 All in all, the program produces around 90 lines of console output. But if we think about the original problem, we know that our 4 by 5 grid only has 20 cells. And because we already know the solution of the very last grid entry, we would only need to solve 19 subproblems.
 
 ![Cost-Matrix](/images/Cost-Matrix.png "Cost-Matrix")
 
 Looking again at the output above, it seems that our program repeatedly solves the same subproblems. It tells us 4 times that the current shortest path for cell (4, 4) has a value of 5. 
-#### The Problem
+
 Our problem here is that our program creates recursion stacks for new subproblems and has no way of knowing if it already solved a subproblem. Or another way to put it: after having solved a very easy problem at the start (say, "The current shortest path is 5 for cell (4, 4)", it does not make use of that result. Instead when having to calculate a slightly more advanced cell, like (3, 4), it solves all necessary contained subproblems again!
 #### The Solution
 The solution here is to make our program remember what it has already solved. We create a dictionary that contains the shortest paths' lenghts for every cell. We have to make it a global variable outside of the function, otherwise our program would forget that the dictionary had entries when it creates a new recursion stack.
