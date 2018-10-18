@@ -7,8 +7,8 @@ title: Dynamic Programming II
 ### Solving a common problem using recursive functions in Python
 #### Introduction
 In my first post, I talked about a Python implementation that recursively solves a Shortest Path problem in a grid. At the end of that post I stated that the program would not be very efficient. To show why, here is the output of the console if you actually run the program:
-> 
-```The current shortest path is 5 for cell (4, 4)
+
+ ```The current shortest path is 5 for cell (4, 4)
 The current shortest path is 13 for cell (4, 3)
 The current shortest path is 16 for cell (4, 2)
 The current shortest path is 16 for cell (4, 1)
