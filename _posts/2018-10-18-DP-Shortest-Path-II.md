@@ -1,9 +1,8 @@
 ---
 layout: post
-title: Dynamic Programming II
+title: Shortest Path Problem in a Grid - Revisited
 ---
 
-# Shortest Path Problem in a Grid - Revisited
 ### Solving a common problem using recursive functions in Python
 #### Introduction
 In my first post, I talked about a Python implementation that recursively solves a Shortest Path problem in a grid. At the end of that post I stated that the program would not be very efficient. To show why, here is the output of the console if you actually run the program:
