@@ -4,9 +4,11 @@ title: About
 permalink: /about/
 ---
 
-I study Industrial Engineering and Management, coding and developing is completely new to me. Don't sue me. 
+I study Business Administration and Mechanical Engineering, coding and developing is new to me. 
 
-#### Contact me
+Don't sue me. 
+
+#### Contact
 
 [justus.benning@rwth-aachen.de](mailto:justus.benning@rwth-aachen.de)
 
