@@ -9,3 +9,9 @@ I study Industrial Engineering and Management, coding and developing is complete
 #### Contact me
 
 [justus.benning@rwth-aachen.de](mailto:justus.benning@rwth-aachen.de)
+
+***
+
+Blog built with Jekyll and the [barryclark/jekyll-now repository](https://github.com/barryclark/jekyll-now). 
+
+![Jekyll Logo](/images/jekyll-logo.png "jekyll-logo")
