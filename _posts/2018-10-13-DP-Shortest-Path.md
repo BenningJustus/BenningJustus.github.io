@@ -7,7 +7,7 @@ title: Dynamic Programming
 ### Solving a common problem using recursive functions in Python
 #### Introduction
 When I got this assignment in one of my classes (Stochastic Dynamic Programming) I looked for example code online. My impression was that, for whatever reason, this problem is popularly solved in C++. After figuring out how to do it in Python I thought I'd share it here as an example code, mainly because I want to practice this whole github.io thing.
-#### The Task:
+#### The Task
 ![Cost-Matrix](/images/Cost-Matrix.png "Cost-Matrix")
 - The entries in the matrix above represent costs associated with the positions in the rectangle.
 - We are interested in finding an optimal (min-cost) route from the top left-hand corner (origin) to the bottom
@@ -15,15 +15,15 @@ right-hand corner (destination).
 - At each entry, we can go either to the *right* or *downwards*.
 - The cost of a particular route is the sum of all the entries encountered on the way from the origin to the destination.
 - What is the optimal route? 
-#### Talking about the solution approach:
+#### Talking about the solution approach
 The topic here is Dynamic Programming, which is a fancy term for "use smart recursive equations to solve your problem step by step. Everybody knows the elegant way to code a function in python that returns the factorial using a [recursive equation](https://www.python-course.eu/recursive_functions.php). The trick here is that we already know some trivial facts:
 - The smaller the grid, the easier the problem. The smallest grid would be just one number, thus:
 - The shortest path from the last grid entry to the last grid entry is the cost of the entry itself
 - When we are on the last column (or row), we have no option but to move down (or right respectively). The task prohibits us from moving any other way (see above). So we just calculate them by adding up the numbers from the finish line backwards.
-#### The non-trivial recursive equation:
+#### The non-trivial recursive equation
 Using these trivial solutions, we have a well defined problem that we can unleash a powerful equation on: The shortest path from any given point is the minimum of the shortest path before, plus the cost of the cell. Now we translate that into Python code.
 
-#### Here it is:
+#### Here it is
 
 ```python
 import numpy as np
@@ -71,6 +71,6 @@ cost = np.array(grid).reshape(len(grid), len(grid[0]))
 sp(cost, 1, 1)
 ```
 
-#### A few notes and comments:
+#### Note: 
 
-This code is highly inefficient. In a second Post I'll talk about why that is and how to fix that.
+This code is highly inefficient. In a second post I'll talk about why that is and how to fix that.
