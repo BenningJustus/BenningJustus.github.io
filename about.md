@@ -6,7 +6,7 @@ permalink: /about/
 
 ## About me
 
-|Resume                      | Justus Benning | Last updated 18.10.2018               |
+|Resume                      | Justus Aaron Benning | Last updated 18.10.2018    |
 |:---------------------------|-------------------|----------------------------------------:|
 | *University*               |                   |                                         |
 |                            | Since 10/2013     | **RWTH Aachen University**              |
@@ -18,6 +18,8 @@ permalink: /about/
 |         |                                    | Title of Bachelor thesis:                           |
 |         |                                    |Influence factors on designing the M&M cooperation in production control|
 | *Extracurricular Activities* |               |                                           |
+|                            | 10/2017-09/2018   |**StreetScooter GmbH**           |
+|                            |                   | Working Student (CFO Branch)      |
 |                            | Since 04/2017,    | Tutor Quantitative Methods of           |
 |                            |04/2016-09/2016| Management Science                        |
 | *Internships*              |                   |                                         |
