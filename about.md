@@ -16,7 +16,7 @@ permalink: /about/
 |                            |                   | Exchange Semester   |
 |                            | 08/2017         | **Bachelor of Science**                       |
 |         |                                    | Title of Bachelor thesis:                           |
-|         |                                    | Influence factors on designing the degree of cooperation in production control  |
+|         |                                    |> Influence factors on designing the M&M cooperation in production control  |
 | *Extracurricular Activities* |               |                                           |
 |                            | Since 04/2017,    | Tutor Quantitative Methods of           |
 |                            |04/2016-09/2016| Management Science                        |
