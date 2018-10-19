@@ -4,8 +4,6 @@ title: About
 permalink: /about/
 ---
 
-## About me
-
 |Resume                      | Justus Aaron Benning | Last updated 18.10.2018    |
 |:---------------------------|-------------------|----------------------------------------:|
 | *University*               |                   |                                         |
