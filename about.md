@@ -12,25 +12,25 @@ permalink: /about/
 |                            | Since 10/2013     | **RWTH Aachen University**              |
 |                            |                   | Industrial Engineering and Management   |
 |                            |                   | Target Degree: Master of Science   |
-|                            | 09/2018-12/2018 | **Korea University**              |
-|                            |                   | Exchange Semester   |
+|                            | 09/2018- | **Korea University**              |
+|                            | 12/2018                  | Exchange Semester   |
 |                            | 08/2017         | **Bachelor of Science**                       |
 |         |                                    | Title of Bachelor thesis:                           |
 |         |                                    |Influence factors on designing the M&M cooperation in production control|
 | *Extracurricular Activities* |               |                                           |
-|                            | 10/2017-09/2018   |**StreetScooter GmbH**           |
-|                            |                   | Working Student (CFO Branch)      |
-|                            | Since 04/2017,    | Tutor Quantitative Methods of           |
-|                            |04/2016-09/2016| Management Science                        |
+|                            | 10/2017-   |**StreetScooter GmbH**           |
+|                            | 09/2018                 | Working Student (CFO Branch)      |
+|                            | 04/2016-   | Tutor Quantitative Methods of           |
+|                            |09/2016| Management Science                        |
 | *Internships*              |                   |                                         |
-|                            | 12/2016-02/2017| **PricewaterhouseCoopers GmbH WPG**      |
-|                            |                   | Internship Assurcance                   |
-|                            | 10/2016-11/2016 | **Stahlwille Eduard Wille GmbH & Co. KG**|
-|                            |                   | Internship Mechanical Engineering       |
-|                            | 09/2014-10/2014 | **KPMG AG WPG**                         |
-|                            |                   | Internship Finance Advisory             |
-|                            | 08/2013-09/2013 | **KNIPEX-Werk C. Gustav Putsch KG**     |
-|                            |                   | Internship Mechanical Engineering       |
+|                            | 12/2016-| **PricewaterhouseCoopers GmbH WPG**      |
+|                            | 02/2017                 | Internship Assurcance                   |
+|                            | 10/2016- | **Stahlwille Eduard Wille GmbH & Co. KG**|
+|                            | 11/2016                  | Internship Mechanical Engineering       |
+|                            | 09/2014-| **KPMG AG WPG**                         |
+|                            | 10/2014                   | Internship Finance Advisory             |
+|                            | 08/2013-| **KNIPEX-Werk C. Gustav Putsch KG**     |
+|                            | 09/2013                  | Internship Mechanical Engineering       |
 | *Language Skills*          |                   |                                         |
 |                            | English           | Fluency in both written and spoken      |
 |                            | French            | Basic knowledge (DELF Niveau A2)        |
