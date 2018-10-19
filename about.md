@@ -11,6 +11,9 @@ permalink: /about/
 | *University*               |                   |                                         |
 |                            | Since 10/2013     | **RWTH Aachen University**              |
 |                            |                   | Industrial Engineering and Management   |
+|                            | 08/2017         |                                                  |
+|         |                                    | Title of Bachelor thesis:                           |
+|         |                                    | Analysis of the influence factors on designing the degree of cooperation in production control  |
 | *Extracurricular Activities* |               |                                           |
 |                            | Since 04/2017,    | Tutor Quantitative Methods of           |
 |                            |04/2016 - 09/2016| Management Science                        |
