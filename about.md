@@ -6,12 +6,15 @@ permalink: /about/
 
 ## About me
 
-|Resume                      | Justus Aaron Benning | Last updated 18.10.2018               |
+|Resume                      | Justus Benning | Last updated 18.10.2018               |
 |:---------------------------|-------------------|----------------------------------------:|
 | *University*               |                   |                                         |
 |                            | Since 10/2013     | **RWTH Aachen University**              |
 |                            |                   | Industrial Engineering and Management   |
-|                            | 08/2017         |                                                  |
+|                            |                   | Target Degree: Master of Science   |
+|                            | 09/2018 - 12/2018 | **Korea University**              |
+|                            |                   | Exchange Semester   |
+|                            | 08/2017         | **Bachelor of Science**                       |
 |         |                                    | Title of Bachelor thesis:                           |
 |         |                                    | Analysis of the influence factors on designing the degree of cooperation in production control  |
 | *Extracurricular Activities* |               |                                           |
