@@ -24,7 +24,7 @@ A "pseudo-code" for this algorithm can be written as follows.
 ![alt-text](/images/jekyll-logo.png "Jekyll Logo")
 
 #### HTML-Image:
-<img src="/images/jekyll-logo.png" alt="alt-text" height="42" width="42">
+<img src="/images/jekyll-logo.png" align=middle alt="alt-text" height="42" width="42">
 
 #### Emphasis:
 Emphasis, aka italics, with *asterisks* or _underscores_.
