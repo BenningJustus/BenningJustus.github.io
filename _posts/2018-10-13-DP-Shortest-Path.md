@@ -6,8 +6,11 @@ title: Shortest Path Problem in a Grid
 ### Solving a common problem using recursive functions in Python
 #### Introduction
 When I got this assignment in one of my classes (Stochastic Dynamic Programming) I looked for example code online. My impression was that, for whatever reason, this problem is popularly solved in C++. After figuring out how to do it in Python I thought I'd share it here as an example code, mainly because I want to practice this whole github.io thing.
+
 #### The Task
-![Cost-Matrix](/images/Cost-Matrix.png "Cost-Matrix")
+
+<p style="text-align:center;"><img src="/images/Cost-Matrix.png" alt="Cost-Matrix" height="120"></p>
+
 - The entries in the matrix above represent costs associated with the positions in the rectangle.
 - We are interested in finding an optimal (min-cost) route from the top left-hand corner (origin) to the bottom
 right-hand corner (destination).
