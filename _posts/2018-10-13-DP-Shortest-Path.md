@@ -60,7 +60,7 @@ You can test it on grids like these:
 
 ```python
 # The grid to solve (bottom right cell is the final destination):
-grid =  [[ 2, 5, 3, 8, 6],
+grid = [[ 2, 5, 3, 8, 6],
          [ 4, 2, 9, 4, 4],
          [ 5, 3, 2, 6, 9],
          [ 0, 3, 8, 5, 0]]
