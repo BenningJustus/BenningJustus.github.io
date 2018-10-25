@@ -21,10 +21,10 @@ A "pseudo-code" for this algorithm can be written as follows.
 |   |   |   |   |   |
 
 #### MD-Image:
-![alt-text](/images/MYIMAGE.png "MYIMAGE")
+![alt-text](/images/jekyll-logo.png "Jekyll Logo")
 
 #### HTML-Image:
-<img src="/images/MYIMAGE.png" alt="alt-text" height="42" width="42">
+<img src="/images/jekyll-logo.png" alt="alt-text" height="42" width="42">
 
 #### Emphasis:
 Emphasis, aka italics, with *asterisks* or _underscores_.
