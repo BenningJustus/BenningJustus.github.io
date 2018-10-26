@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Dijkstra vs. Dynamic Programming
+title: Dijkstra versus Dynamic Programming
 ---
 
 ### Similarities between the recursive formulation and Dijkstra's Algorithm in Digraphs with positive arc weights 
