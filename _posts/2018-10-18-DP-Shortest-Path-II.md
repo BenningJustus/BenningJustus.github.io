@@ -33,9 +33,9 @@ ___
 #### The Problem
 All in all, the program produces around 90 lines of console output. But if we think about the original problem, we know that our 4 by 5 grid only has 20 cells. And because we already know the solution of the very last grid entry, we would only need to solve 19 subproblems.
 
-![Cost-Matrix](/images/Cost-Matrix.png "Cost-Matrix")
+<p style="text-align:center;"><img src="/images/Cost-Matrix.png" alt="Cost-Matrix" height="120"></p>
 
-Looking again at the output above, it seems that our program repeatedly solves the same subproblems. It tells us 4 times that the current shortest path for cell (4, 4) has a value of 5. 
+Looking again at the output above, it seems that our program repeatedly solves the same subproblems. It tells us 4 times that the current shortest path for cell (4, 4) has a value of 5.
 
 Our problem here is that our program creates recursion stacks for new subproblems and has no way of knowing if it already solved a subproblem. Or another way to put it: after having solved a very easy problem at the start (say, "The current shortest path is 5 for cell (4, 4)", it does not make use of that result. Instead when having to calculate a slightly more advanced cell, like (3, 4), it solves all necessary contained subproblems again!
 #### The Solution
@@ -60,7 +60,7 @@ def sp(matrix, srow, scolumn):
 
     # Check if we already solved the subproblem
     if not (srow,scolumn) in memory:
-        
+
         # Smallest problem: shortest path from bottom right cell to bottom right cell is cost[bottom right cell].
         # We initialized our memory with this solution
         if srow == matrix.shape[0] and scolumn == matrix.shape[1]:
@@ -81,7 +81,6 @@ def sp(matrix, srow, scolumn):
             print("The current shortest path is %s for cell (%s, %s)" % (memory[srow,scolumn], srow, scolumn))
             # Just for deeper understanding -- uncomment if you want a messy output:
             #print(memory)
-            
+
     return memory[srow,scolumn]
 ```
-
