@@ -7,7 +7,7 @@ date: 2018-11-27 00:00:00 +0900
 ## Introduction and terminology
 Novelty detection is a term describing different machine learning processes that try to teach a program to distinguish unusual or irregular measurements from regular data. These outliers are suspected to originate from different mechanisms than the usual data (in contrast to statistical noise that occurs due to environmental effects or measurement errors).
 
-Novelty detection differs from other classifiers in regard to the data that is to be analyzed: Classifiers such as the support vector machine try to separate rather balanced data sets. The number of examples for each class has to be sufficiently high. When there is a minority class, of which there is only a handful of data points, novelty detection algorithms tend to produce better results. The decision process regarding the correct application could be modeled as follows:
+Novelty detection differs from other classifiers in regard to the data that is to be analyzed: Classifiers such as the support vector machine try to separate rather balanced datasets. The number of examples for each class has to be sufficiently high. When there is a minority class, of which there is only a handful of data points, novelty detection algorithms tend to produce better results. The decision process regarding the correct application could be modeled as follows:
 
 <p style="text-align:center;"><img src="/images/ND-Flowchart.png" alt="ND" height="250"></p>
 ---
@@ -18,10 +18,10 @@ Novelty detection differs from other classifiers in regard to the data that is t
 This post focuses on a certain field of novelty detection algorithms, namely the density-based approach. Generally speaking, these algorithms search for outliers by looking for distribution patterns in the data points and subsequently labeling the data points that do not fit the pattern as outliers.
 
 # Gaussian Density Estimation (Unigaussian Method)
-The first of the code examples covers the most basic approach of density-based novelty detection. In the most simple form of density estimation, we assume that the data is distributed over a single Gaussian function. Based on this assumption, we can calculate the maximum likelihood estimators for the mean and the standard deviation of the data points. In a further assumption, we define every data point that has low value according to the density function to be an outlier.
+The first of the code examples covers the most basic approach of density-based novelty detection. In the most simple form of density estimation, we assume that the data is distributed over a single Gaussian function. Based on this assumption, we can calculate the maximum likelihood estimators for the mean and the standard deviation of the training dataset. In a further assumption, we define every test sample that has low value according to the density function to be an outlier.
 
 ### The imports
-First, the libraries required for our program are imported. In this case, we use ```pyplot```, ```pandas``` and ```seaborn``` for plotting purposes, ```numpy``` for our linear algebra calculations and and the ```stats``` module from ```scipy``` to facilitate handling our stochastic functions. The code is written in Python 3 and should run in any updated, solved environment with some additional scientific Python libraries installed. Additionally, when using Jupyter, ```matplotlib``` should be configured to the "notebook" layout. Sometimes, 3D plots appear very small in Jupyter, so we fix the graph size in the last line.
+First, the modules required for our program are imported. In this case, we use ```pyplot```, ```pandas``` and ```seaborn``` for plotting purposes, ```numpy``` for our linear algebra calculations and and the ```stats``` module from ```scipy``` to facilitate handling our stochastic functions. The code is written in Python 3 and should run in any updated, solved environment with some additional scientific Python libraries installed. Additionally, when using Jupyter, ```matplotlib``` should be configured to the "notebook" layout. Sometimes, 3D plots appear very small in Jupyter, so we fix the graph size in the last line.
 
 ```python
 # For plotting
@@ -38,8 +38,8 @@ from scipy import stats
 plt.rcParams["figure.figsize"] = (5, 5)
 ```
 
-### The data set
-The data set used is simply referred to as "Glass" in most applications. It can be downloaded [from the UCI machine learning repository](https://archive.ics.uci.edu/ml/datasets/Glass+Identification).
+### The dataset
+The dataset used is simply referred to as "Glass" in most applications. It can be downloaded [from the UCI machine learning repository](https://archive.ics.uci.edu/ml/datasets/Glass+Identification).
 The set contains 214 instances, each point having 9 dimensions plus a class label. It is frequently used for novelty detection, as class 6 represents a minority class. All files used in this post can be found in my [GitHub repository](https://github.com/BenningJustus/MachineLearning).
 
 ```python
@@ -58,7 +58,7 @@ Aldermaston (1987-09-01). UCI Machine Learning Repository [http://archive.ics.uc
 ---
 
 ### Visualizing the data
-For practicality reasons we will only use two dimensions of our instances for remainder of this chapter. This will allow us to visualize our data points as well as the density function that we calculate. Here, we use the ```regplot``` function of ```seaborn``` to plot our points, with values from column 2 and 7 (arbitrarily chosen). As we do not need a regression, we switch off this functionality with the parameter ```fit_reg```.
+For practicality reasons we will only use two dimensions of our instances for the remainder of this chapter. This will allow us to visualize our data points as well as the density function that we calculate. Here, we use the ```regplot``` function of ```seaborn``` to plot our points, with values from column 2 and 7 (arbitrarily chosen). As we do not need a regression, we switch off this functionality with the parameter ```fit_reg```.
 
 ```python
 # Plot 2 Dimensions of it (Scatter)
@@ -72,7 +72,7 @@ plt.show()
 <p style="text-align:center;"><img src="/images/Uni_Hist1.png" alt="ND" height="350"></p>
 
 ### Separating the data
-Before we get down to the actual training of the density function we need to remind ourselves again that novelty detection is similar to other classification methods, but not the same. Novelty detectors are only trained on target samples. That is, we have a "clean" training data set without pollution from novelty data. Only when it comes to testing we want to distinguish outliers from our relevant data:
+Before we get down to the actual training of the density function we need to remind ourselves again that novelty detection is similar to other classification methods, but not the same. Novelty detectors are only trained on target samples. That is, we have a "clean" training dataset without pollution from novelty data. Only when it comes to testing we want to distinguish outliers from our relevant data:
 
 <p style="text-align:center;"><img src="/images/Data_Sep.png" alt="ND" height="250"></p>
 ---
@@ -104,7 +104,7 @@ print("Dimension Test Data: ", X_test.shape)
 print(Y_test)
 ```
 
-Looking at the output, we see that we created a clean training data set, spanning 196 samples without any pollution from class 6. The test data spans 18 instances, having equal parts of target (class 1) and novelty data (class 6). This will enable us to check how the algorithm performs. (There is no label for class "4" in the data set as this subset was removed by the original authors. To our cause, this does not matter).
+Looking at the output, we see that we created a clean training dataset, spanning 196 samples without any pollution from class 6. The test data spans 18 instances, having equal parts of target (class 1) and novelty data (class 6). This will enable us to check how the algorithm performs. (There is no label for class "4" in the dataset as this subset was removed by the original authors. To our cause, this does not matter).
 
 ```
 Dimension Training Data:  (196, 2)
@@ -166,7 +166,7 @@ The base plane grid has the same intervals and minimum/maximum values as the sca
 <p style="text-align:center;"><img src="/images/Uni_Gauss1.png" alt="ND" height="400"></p>
 
 ### Identifying the outliers
-We now want to use the density function to identify outliers in the data. Like stated above, we can use the probability density value as a measure: If the new data point lies out of bounds of a pre-defined density region, we mark it as "outlier". The image below illustrates the cutoff process for a density value of 0.1:
+We now want to use the density function to identify outliers in the data. Like stated above, we can use the probability density value as a measure: If the new data point lies out of bounds of a predefined density region, we mark it as "outlier". The image below illustrates the cutoff process for a density value of 0.1:
 
 <p style="text-align:center;"><img src="/images/Gauss-Cutoff.png" alt="Hist2" height="250"></p>
 ---
@@ -314,7 +314,7 @@ from sklearn.cluster import KMeans
 plt.rcParams["figure.figsize"] = (5, 5)
 ```
 ### The dataset
-We will use the same data set as before in the single mode Gaussian approach. However, this time we will use 3 input dimensions, as the focus will lie on performance of the algorithm rather than visual understanding. However, the separation of the instances into test and training data remains the same, with a 196-instance training set and an 18-instance test set:
+We will use the same dataset as before in the single mode Gaussian approach. However, this time we will use 3 input dimensions, as the focus will lie on performance of the algorithm rather than visual understanding. However, the separation of the instances into test and training data remains the same, with a 196-instance training set and an 18-instance test set:
 
 ```python
 # Values of dataframe
@@ -377,7 +377,7 @@ For this kind of stochastic problem, we can use the Expectation-Maximization alg
 
 ---
 
-In the **E-Step**, we calculate "responsibilities", that is, probabilities that take into consideration the weight of our density functions. To normalize the values, we divide it by the sum over all classes. Now we have specific values for each data point that give an impression how likely it is that our measurement is part of (or "responsible" for) a density function.
+In the **E-Step**, we calculate "responsibilities", that is, probability density values that take into consideration the weight of our density functions. To normalize the values, we divide it by the sum over all classes. Now we have specific values for each data point that give an impression how likely it is that our measurement is part of (or "responsible" for) a density function.
 
 In the **M-Step**, the parameters of the density functions are improved with the new information gained by the E-Step: For multiple Gaussians, a single datapoint might contribute more to curve A rather than curve B. How much "more" it contributes is expressed by the responsibilities. Thus, if we integrate these values into our MLE calculations, we get estimates that account for the importance of each point for the curve.
 
@@ -389,7 +389,7 @@ With these new and improved parameters, we can again calculate responsibilities 
 
 ---
 ### Initializing the mean vectors
-In order to start our iterations, we need a first estimate of the mean and covariance values. Theoretically, these could be chosen randomly. However, for fast convergence and to avoid numerical issues it is sensible to initialize them with the results of a preemptive clustering algorithm, as a heuristic so to speak. For this, we use the ```KMeans``` class of the previously imported ```sklearn.cluster``` module. The number of clusters we want is equal to our ```classes``` hyperparameter. As we only want a rough, fast estimation we set the number of repetitions ```n_init=1``` and the iterations ```max_iter=100```. Now, to output the values of our mean vectors we just store the values of ```kmeans.cluster_centers_```.
+In order to start our iterations, we need a first estimate of the mean and covariance values. Theoretically, these could be chosen randomly. However, for fast convergence and to avoid numerical issues it is sensible to initialize them with the results of a preemptive clustering algorithm, as a heuristic so to speak. For this, we use the ```KMeans``` class of the previously imported ```sklearn.cluster``` module. The number of clusters we want is equal to our ```classes``` hyperparameter. As we only want a rough, fast estimation we set the number of repetitions to ```n_init=1``` and the iterations to ```max_iter=100```. Now, to output the values of our mean vectors we just store the values of ```kmeans.cluster_centers_```.
 
 ```python
 kmeans = KMeans(n_clusters=classes, n_init=1, max_iter=100)  
@@ -419,7 +419,7 @@ The output shows us the dimensions and values of the mean matrix, as well as the
 ```
 
 ### Initializing the covariance matrices
-As the K-Means Algorithm is not directly concerned with parameters like the covariance and relies more heavily on terms like distance, we have to use a small workaround to get our initial values: Using the ```np.where``` function, we can divide the training data set into our clusters. On these clusters, we simply use the maximum likelihood estimator provided by ```np.cov```. If we do this for every class, we get five covariance matrices. However, we have to use a small numerical trick to ensure stability of our EM Algorithm later: All matrices in the iterations have to be positive semi-definite. We decrease the chance of numerical errors leading to an abort by adding a ```boost``` to the matrix entries of the main diagonal.
+As the K-Means Algorithm is not directly concerned with parameters like the covariance and relies more heavily on terms like distance, we have to use a small workaround to get our initial values: Using the ```np.where``` function, we can divide the training dataset into our clusters. On these clusters, we simply use the maximum likelihood estimator provided by ```np.cov```. If we do this for every class, we get five covariance matrices. However, we have to use a small numerical trick to ensure stability of our EM Algorithm later: All matrices in the iterations have to be positive semi-definite. We decrease the chance of numerical errors leading to an abort by adding a ```boost``` to the matrix entries of the main diagonal.
 
 
 ```python
@@ -534,7 +534,7 @@ def M_step(M,r,X):
 
 Calculating the new covariance matrices is not so trivial: It differs from the usual MLE as it weighs each instance individually. The ```np.cov()``` function actually provides this feature (but only in more recent versions, so the installation has to be checked). By setting the ```aweights``` parameter equal to the responsibilities and making sure that we use the correct bias with ```ddof=0``` we can calculate the new matrices for each class.
 
-However, to ensure that the program uses this new feature correctly, and to clarify how to implement the equation from above, there is an alternative way, whose values are stored in ```cov_new_b```. Both methods were tested on multiple occasions and produced the same results.
+However, to clarify how to implement the equation from above, there is an alternative implemented beneath; its values are stored in ```cov_new_b```. Both ways were tested on multiple occasions and produced the same results.
 
 ```python
     ### New covariance (Method a (np) or b (low-level)) ###
@@ -660,11 +660,11 @@ import numpy as np
 plt.rcParams["figure.figsize"] = (5, 5)
 ```
 
-### The data set
-The original data set is the same as before. We - again - take two arbitrary columns (more dimensions could be used, however this allows us to see a visual representation of the process later). The same ```StandardScaler``` class is used to ensure proper function of the algorithm.
+### The dataset
+The original dataset is the same as before. We - again - take two arbitrary columns (more dimensions could be used, however this allows us to see a visual representation of the process later). The same ```StandardScaler``` class is used to ensure proper function of the algorithm.
 
 ```python
-# Data set
+# dataset
 glass = pd.read_csv("../2.Data/Glass_Data.csv")
 npdata = glass.values
 # Separate input data from labels
@@ -695,7 +695,7 @@ X_test = scaler.transform(X_test)
 ```
 
 ### The process
-To understand what a possible kernel density estimation would look like and how it can help separate our dataset, we can look at the plot below. The blue points represent the training data set that we just generated. Based on these we want to calculate the KDE. The green points are the target samples of the test data (we want to identify them as "normal"), the orange ones are the novelty samples (class 6, like before).
+To understand what a possible kernel density estimation would look like and how it can help separate our dataset, we can look at the plot below. The blue points represent the training dataset that we just generated. Based on these we want to calculate the KDE. The green points are the target samples of the test data (we want to identify them as "normal"), the orange ones are the novelty samples (class 6, like before).
 
 <p style="text-align:center;"><img src="/images/KDE_Plot.png" alt="Hist2" height="350"></p>
 ---
@@ -778,7 +778,7 @@ def KDE(x,x_i,h,ktype):
 ```
 
 ### Calculating the density values
-Now we can use a simple ```for```-loop to calculate the values for every point of the test data set. It is possible to optimize the hyperparameter ```h```, for example by the EM Algorithm. However, for our example empirical testing yielded a sufficient precision. The ```cutoff``` and ```kernel``` variables can be changed as well to analyze their effect on the performance on the algorithm.
+Now we can use a simple ```for```-loop to calculate the values for every point of the test dataset. It is possible to optimize the hyperparameter ```h```, for example by the EM Algorithm. However, for our example empirical testing yielded a sufficient precision. The ```cutoff``` and ```kernel``` variables can be changed as well to analyze their effect on the performance on the algorithm.
 
 ```python
 # Define hyperparameter
@@ -877,8 +877,8 @@ import numpy as np
 plt.rcParams["figure.figsize"] = (5, 5)
 ```
 
-### A new data set
-For this chapter, we introduce a new data set. It is based on the Wisconsin Breast Cancer data set, provided by the [UCI machine learning repository](https://archive.ics.uci.edu/ml/machine-learning-databases/breast-cancer-wisconsin/breast-cancer-wisconsin.names). It is divided into two classes, the benign instances (labeled "2") and the malignant (labeled "4"). The number of the latter instances has been reduced to build a novelty class. This leaves us with 479 instances in total, spanning 10 Dimensions.
+### A new dataset
+For this chapter, we introduce a new dataset. It is based on the Wisconsin Breast Cancer dataset, provided by the [UCI machine learning repository](https://archive.ics.uci.edu/ml/machine-learning-databases/breast-cancer-wisconsin/breast-cancer-wisconsin.names). It is divided into two classes, the benign instances (labeled "2") and the malignant (labeled "4"). The number of the latter instances has been reduced to build a novelty class. This leaves us with 479 instances in total, spanning 10 Dimensions.
 
 ```python
 # Import a Dataset used for Novelty Detection
@@ -895,7 +895,7 @@ wbc.head(n=5)
 
 ---
 ### Separating the dataset
-The data is separated into a clean data set spanning 400 benign instances and a polluted test data set consisting of the first 79 samples. Unfortunately, the "bare nuclei" column has to be removed due to incomplete data.
+The data is separated into a clean dataset spanning 400 benign instances and a polluted test dataset consisting of the first 79 samples. Unfortunately, the "bare nuclei" column has to be removed due to incomplete data.
 
 ```python
 # Create input data ndarray
@@ -916,7 +916,7 @@ print(y_test.shape)
 print(X[:5,:])
 ```
 
-This leaves us with 8 dimensions for the input as we can see below. The first goal is now to train the LOF algorithm on our training data set, that is, to calculate the LOF for every of the 400 instances.
+This leaves us with 8 dimensions for the input as we can see below. The first goal is now to train the LOF algorithm on our training dataset, that is, to calculate the LOF for every of the 400 instances.
 
 ```
 (400, 8)
@@ -996,7 +996,7 @@ The next step is to find the k-distance neighborhoods for each point. The defini
 
 ---
 
-In the code it is implemented via a 400 by 400 matrix, initialized with zeros. If the ```N_k[i,j]``` is equal to one, it means that point ```j``` is in the neighborhood of point ```i```. The numerical values were chosen over boolean ones because the will greatly facilitate calculations afterwards.
+In the code it is implemented via a 400 by 400 matrix, initialized with zeros. If ```N_k[i,j]``` is equal to one, it means that point ```j``` is in the neighborhood of point ```i```. The numerical values were chosen over boolean ones because the will greatly facilitate calculations afterwards.
 
 ```python
 # Assign k-distance neighborhoods
@@ -1084,7 +1084,7 @@ In our penultimate step to calculate the local outlier factors we look at the lo
 
 ---
 
-The fact that we implemented the information about the neighbors numerically comes in handy now: For the sum indexed over the neighbors of each point we can simply use the dot product of the reachability distance and the respective vector in the neighbor matrix.
+The fact that we implemented the information about the neighbors numerically is beneficial now: For the sum indexed over the neighbors of each point we can simply use the dot product of the reachability distance and the respective vector in the neighbor matrix.
 
 ```python
 # Calculate local reachability density
@@ -1101,14 +1101,14 @@ for i in range(instances):
         print(np.dot(r_dist[i,:],neighbors[i,:]))
 ```
 
-The last code bit checks for zero entries in our local reachability density vector. Although that is attempted to be prevented by choosing a large enough k and defining the reachability distance, depending on the data set, one can still run into numerical problems. Luckily with this parametrization, we don't.
+The last code bit checks for zero entries in our local reachability density vector. Although that is attempted to be prevented by choosing a large enough k and defining the reachability distance, depending on the dataset, one can still run into numerical problems. Luckily with this parametrization, we don't. Thus, the output only gives us the newly calculated values for ```lrd```:
 
 ```
 [0.125      0.4472136  0.70710678 0.70710678 0.70710678]
 ```
 
 ### The local outlier factors
-With these values at hand, we can calculate the local outlier factors by relating the density of a point to the one of its neighbors. The image below illustrates the calculation and most importantly meaning of this value:
+With these values at hand, we can calculate the local outlier factors by relating the density of a point to the one of its neighbors. The image below illustrates the calculation and most importantly the meaning of this value:
 
 <p style="text-align:center;"><img src="/images/LOF_lof.png" alt="Hist2" height="350"></p>
 ---
@@ -1130,7 +1130,7 @@ print(lof[10:15])
 print(lof.shape)
 ```
 
-This console output means that we successfully calculated the local outlier factors for every instance of the training set.
+This console output shows that we successfully calculated the local outlier factors for every instance of the training set.
 
 ```
 [6.46138677 1.47171121 1.27182765 1.23842551 1.2787892 ]
@@ -1138,7 +1138,7 @@ This console output means that we successfully calculated the local outlier fact
 ```
 
 ### Novelty detection with LOF
-We now can to use these values to identify novelty data in our test set, which was our original intention from the beginning. For this, we write a function that can be fed a test instance (called ```new_point```) and will return the LOF of that specific point. Note that now we only compare the new point to other target samples, not to the rest of the test samples. We do not want our test data to pollute our decision boundary.
+We now can to use these values to identify novelty data in our test set, which was our original intention from the beginning. For this, we write a function that can be fed a test instance (called ```new_point```) and will return the LOF of that specific point. Note that now we only compare the new point to the training samples, not to the rest of the test samples. We do not want our test data to pollute our decision boundary.
 
 ```python
 # We now have LOF Data for every training instance
@@ -1173,7 +1173,7 @@ def LOF(new_point):
     return(lof_new)
 ```
 
-We can use this function to calculate the LOF for every single point of our test data set and store it in the ```ndarray``` called ```lof_values```.
+We can use this function to calculate the LOF for every single point of our test dataset and store it in the ```ndarray``` called ```lof_values```.
 
 ```python
 # Calculate LOF values for test set
@@ -1183,7 +1183,7 @@ for t in range(X_test.shape[0]):
 ```
 
 ### Assessing the results
-Akin to other density-based approaches, we will discriminate based on a cutoff value. Note however, that in this case a higher value indicates a higher probability of an outlier. The cutoff value itself is not clearly defined in the algorithm: A value of one or smaller is always viewed as target data, as it lies in a cluster. Anything above one depends on the data set itself: Sometimes a 10% increase in the outlier factor means a novelty sample, while in other dataset a score of 2.0 is viewed as absolutely normal.
+Akin to other density-based approaches, we will discriminate based on a cutoff value. Note however, that in this case a higher value indicates a higher probability of an outlier. The cutoff value itself is not clearly defined in the algorithm: A value of one or smaller is always viewed as target data, as it lies in a cluster. Anything above one depends on the dataset itself: Sometimes a 10% increase in the outlier factor means a novelty sample, while in other dataset a score of 2.0 is viewed as absolutely normal.
 
 ```python
 # Assess results
@@ -1221,7 +1221,6 @@ In our dataset, the cutoff value of ```2.25``` produced the best results. The re
 Confusion Matrix:
  50 2
  8 19
-
 ```
 
 We use the formula for the F1-Score again to get an impression of how well the algorithm performed.
